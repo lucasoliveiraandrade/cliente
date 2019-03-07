@@ -1,4 +1,4 @@
-package br.com.prova.usuario.dto.response;
+package br.com.prova.cliente.dto.response;
 
 import java.util.List;
 
@@ -15,5 +15,5 @@ public class UsuarioDTOResponse {
 	private String timeCoracaoId;
 	private String dataNascimento;
 	private String tipo;
-	private List<String> campanhas;
+	private List<String> campanhasId;
 }

@@ -1,4 +1,4 @@
-package br.com.prova.usuario.dto.request;
+package br.com.prova.cliente.dto.request;
 
 import java.util.List;
 
@@ -23,6 +23,6 @@ public class UsuarioDTORequest {
 
 	private String timeCoracaoId;
 
-	private List<String> campanhas;
+	private List<String> campanhasId;
 
 }

@@ -13,14 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.prova.campanha.collection.Campanha;
-import br.com.prova.campanha.dto.response.CampanhaDTOResponse;
-import br.com.prova.campanha.mapper.CampanhaMapper;
 import br.com.prova.cliente.collection.Usuario;
+import br.com.prova.cliente.dto.request.UsuarioDTORequest;
+import br.com.prova.cliente.dto.response.UsuarioDTOResponse;
 import br.com.prova.cliente.mapper.UsuarioMapper;
 import br.com.prova.cliente.service.UsuarioService;
-import br.com.prova.usuario.dto.request.UsuarioDTORequest;
-import br.com.prova.usuario.dto.response.UsuarioDTOResponse;
 
 @RestController
 @RequestMapping("/prova/usuarios")
@@ -32,14 +29,10 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioMapper mapper;
 
-	@Autowired
-	private CampanhaMapper campanhaMapper;
-
 	@PostMapping
-	public List<CampanhaDTOResponse> criaUsuario(@RequestBody @Valid UsuarioDTORequest dtoRequest) {
+	public List<String> criaUsuario(@RequestBody @Valid UsuarioDTORequest dtoRequest) {
 		Usuario usuario = mapper.toObject(dtoRequest);
-		List<Campanha> campanhas = service.salvaUsuario(usuario);
-		return campanhaMapper.toDTOs(campanhas);
+		return service.salvaUsuario(usuario);
 	}
 
 	@PostMapping(value = "/{usuarioId}/associacao")

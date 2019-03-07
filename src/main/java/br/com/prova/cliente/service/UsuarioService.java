@@ -9,11 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import br.com.prova.campanha.collection.Campanha;
-import br.com.prova.campanha.validacao.UsuarioValidacao;
 import br.com.prova.cliente.collection.Usuario;
 import br.com.prova.cliente.enumeration.TipoUsuario;
 import br.com.prova.cliente.repository.UsuarioRepository;
+import br.com.prova.cliente.validacao.UsuarioValidacao;
 
 @Service
 public class UsuarioService {
@@ -22,21 +21,18 @@ public class UsuarioService {
 	private UsuarioRepository repository;
 
 	@Autowired
-	private CampanhaService campanhaService;
-
-	@Autowired
 	private UsuarioValidacao validador;
 
-	public List<Campanha> salvaUsuario(Usuario usuario) {
+	public List<String> salvaUsuario(Usuario usuario) {
 		validador.validaUsuarioJaExistente(repository.existsByEmail(usuario.getEmail()));
 
 		usuario.setTipo(TipoUsuario.CLIENTE);
 		repository.insert(usuario);
 
-		List<Campanha> campanhasValidas = new ArrayList<>();
+		List<String> campanhasValidas = new ArrayList<>();
 
-		if (CollectionUtils.isEmpty(usuario.getCampanhas())) {
-			campanhasValidas = campanhaService.buscaCampanhasValidasPorTimeCoracao(usuario.getTimeCoracaoId());
+		if (CollectionUtils.isEmpty(usuario.getCampanhasId())) {
+//			campanhasValidas = campanhaService.buscaCampanhasValidasPorTimeCoracao(usuario.getTimeCoracaoId());
 		}
 
 		return campanhasValidas;
@@ -48,14 +44,14 @@ public class UsuarioService {
 		Usuario usuario = repository.findById(usuarioId)
 				.orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
 
-		List<Campanha> campanhasTimeDoCoracao = campanhaService
-				.buscaCampanhasValidasPorTimeCoracao(usuario.getTimeCoracaoId());
+		List<String> campanhasTimeDoCoracao = null;
+//				campanhaService.buscaCampanhasValidasPorTimeCoracao(usuario.getTimeCoracaoId());
 
-		Set<Campanha> campanhasSet = new HashSet<>();
-		campanhasSet.addAll(usuario.getCampanhas());
+		Set<String> campanhasSet = new HashSet<>();
+		campanhasSet.addAll(usuario.getCampanhasId());
 		campanhasSet.addAll(campanhasTimeDoCoracao);
 
-		usuario.setCampanhas(new ArrayList<Campanha>(campanhasSet));
+		usuario.setCampanhasId(new ArrayList<String>(campanhasSet));
 
 		repository.save(usuario);
 	}
