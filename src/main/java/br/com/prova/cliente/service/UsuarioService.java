@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,8 @@ import org.springframework.util.CollectionUtils;
 
 import br.com.prova.cliente.collection.Usuario;
 import br.com.prova.cliente.enumeration.TipoUsuario;
+import br.com.prova.cliente.integration.CampanhaIntegration;
+import br.com.prova.cliente.integration.dto.CampanhaDTO;
 import br.com.prova.cliente.repository.UsuarioRepository;
 import br.com.prova.cliente.validacao.UsuarioValidacao;
 
@@ -22,6 +25,9 @@ public class UsuarioService {
 
 	@Autowired
 	private UsuarioValidacao validador;
+	
+	@Autowired
+	private CampanhaIntegration campanhaIntegration;
 
 	public List<String> salvaUsuario(Usuario usuario) {
 		validador.validaUsuarioJaExistente(repository.existsByEmail(usuario.getEmail()));
@@ -32,7 +38,10 @@ public class UsuarioService {
 		List<String> campanhasValidas = new ArrayList<>();
 
 		if (CollectionUtils.isEmpty(usuario.getCampanhasId())) {
-//			campanhasValidas = campanhaService.buscaCampanhasValidasPorTimeCoracao(usuario.getTimeCoracaoId());
+			campanhasValidas = campanhaIntegration.buscaCampanhas(usuario.getTimeCoracaoId())
+				.stream()
+				.map(CampanhaDTO::getId)
+				.collect(Collectors.toList());
 		}
 
 		return campanhasValidas;

@@ -20,7 +20,7 @@ import br.com.prova.cliente.mapper.UsuarioMapper;
 import br.com.prova.cliente.service.UsuarioService;
 
 @RestController
-@RequestMapping("/prova/usuarios")
+@RequestMapping("/api/v1/usuarios")
 public class UsuarioController {
 
 	@Autowired

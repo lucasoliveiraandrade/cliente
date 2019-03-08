@@ -1,1 +1,10 @@
 
+spring:
+  data:
+    mongodb:
+      database: campanha
+      host: localhost
+      port: 27017
+
+server:
+  port: 8080
