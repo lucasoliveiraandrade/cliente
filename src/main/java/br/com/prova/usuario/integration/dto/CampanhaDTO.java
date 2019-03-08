@@ -1,7 +1,5 @@
 package br.com.prova.usuario.integration.dto;
 
-import java.time.LocalDateTime;
-
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -13,7 +11,7 @@ public class CampanhaDTO {
 	private String id;
 	private String nome;
 	private String timeCoracaoId;
-	private LocalDateTime dataInicio;
-	private LocalDateTime dataTermino;
+	private String dataInicio;
+	private String dataTermino;
 	private String status;
 }

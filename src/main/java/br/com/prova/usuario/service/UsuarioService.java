@@ -1,5 +1,6 @@
 package br.com.prova.usuario.service;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
 import static org.springframework.util.CollectionUtils.isEmpty;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class UsuarioService {
 
 		List<CampanhaDTO> campanhasValidas = new ArrayList<>();
 
-		if (isEmpty(usuario.getCampanhas())) {
+		if (isEmpty(usuario.getCampanhas()) && isNotBlank(usuario.getTimeCoracaoId())) {
 			campanhasValidas = campanhaIntegration.buscaCampanhasPorTimeCoracaoId(usuario.getTimeCoracaoId());
 		}
 

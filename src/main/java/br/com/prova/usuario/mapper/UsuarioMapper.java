@@ -1,5 +1,8 @@
 package br.com.prova.usuario.mapper;
 
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,7 +22,11 @@ public class UsuarioMapper {
 	private CampanhaIntegration campanhaIntegration;
 
 	public Usuario toObject(UsuarioDTORequest usuarioDTORequest) {
-		List<CampanhaDTO> campanhas = campanhaIntegration.buscaCampanhasPorIds(usuarioDTORequest.getCampanhasId());
+		List<CampanhaDTO> campanhas = new ArrayList<>();
+
+		if (!isEmpty(usuarioDTORequest.getCampanhasId())) {
+			campanhas = campanhaIntegration.buscaCampanhasPorIds(usuarioDTORequest.getCampanhasId());
+		}
 
 		return Usuario.builder().nome(usuarioDTORequest.getNome()).email(usuarioDTORequest.getEmail())
 				.timeCoracaoId(usuarioDTORequest.getTimeCoracaoId())
