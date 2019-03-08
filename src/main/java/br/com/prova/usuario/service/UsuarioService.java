@@ -67,4 +67,8 @@ public class UsuarioService {
 		validador.validaUsuarioId(usuarioId);
 		return repository.findById(usuarioId).orElseThrow(() -> new RuntimeException("Usuário não encontrado."));
 	}
+
+	public List<Usuario> buscaUsuarios() {
+		return repository.findAll();
+	}
 }

@@ -18,7 +18,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"nome\": \"usuario teste\",\n\t\"email\": \"testeteste@teste.com\",\n\t\"dataNascimento\": \"01/01/1990\",\n\t\"timeCoracaoId\": \"1\",\n\t\"campanhas\": [\n\t\t\n\t\t]\n}"
+					"raw": "{\n\t\"nome\": \"usuario teste\",\n\t\"email\": \"testeteste11@teste.com\",\n\t\"dataNascimento\": \"2019-03-20T01:44:50\",\n\t\"timeCoracaoId\": \"1\",\n\t\"campanhas\": [\n\t\t\n\t\t]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/api/v1/usuarios",
@@ -52,7 +52,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/usuarios/5c7d2e99b47f1a1b48d9deae/campanhas/5c7d2d63b47f1a1b48d9deaa",
+					"raw": "http://localhost:8080/api/v1/usuarios/5c829b85b47f1a7087f95b5d/associacao",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -62,9 +62,8 @@
 						"api",
 						"v1",
 						"usuarios",
-						"5c7d2e99b47f1a1b48d9deae",
-						"campanhas",
-						"5c7d2d63b47f1a1b48d9deaa"
+						"5c829b85b47f1a7087f95b5d",
+						"associacao"
 					]
 				}
 			},
@@ -86,7 +85,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8080/api/v1/usuarios/5c7d38c7b47f1a1cbd056ba2",
+					"raw": "http://localhost:8080/api/v1/usuarios/5c829b85b47f1a7087f95b5d",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -96,7 +95,38 @@
 						"api",
 						"v1",
 						"usuarios",
-						"5c7d38c7b47f1a1cbd056ba2"
+						"5c829b85b47f1a7087f95b5d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar todos usuarios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"usuarios"
 					]
 				}
 			},
