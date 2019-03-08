@@ -1,0 +1,106 @@
+{
+	"info": {
+		"_postman_id": "0b87cd04-8c06-4b95-b681-cd1058a05381",
+		"name": "requisicoes-usuario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criar usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"usuario teste\",\n\t\"email\": \"testeteste@teste.com\",\n\t\"dataNascimento\": \"01/01/1990\",\n\t\"timeCoracaoId\": \"1\",\n\t\"campanhas\": [\n\t\t\n\t\t]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Associar usuario a campanhas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/usuarios/5c7d2e99b47f1a1b48d9deae/campanhas/5c7d2d63b47f1a1b48d9deaa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"usuarios",
+						"5c7d2e99b47f1a1b48d9deae",
+						"campanhas",
+						"5c7d2d63b47f1a1b48d9deaa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar usuario",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/usuarios/5c7d38c7b47f1a1cbd056ba2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"usuarios",
+						"5c7d38c7b47f1a1cbd056ba2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
