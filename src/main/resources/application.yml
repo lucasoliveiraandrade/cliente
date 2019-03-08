@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      database: campanha
+      database: usuario
       host: localhost
       port: 27017
 

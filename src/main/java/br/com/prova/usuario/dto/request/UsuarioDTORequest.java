@@ -1,9 +1,11 @@
 package br.com.prova.usuario.dto.request;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.Builder;
 import lombok.Data;
@@ -18,8 +20,8 @@ public class UsuarioDTORequest {
 	@Email
 	private String email;
 
-	@NotEmpty
-	private String dataNascimento;
+	@NotNull
+	private LocalDateTime dataNascimento;
 
 	private String timeCoracaoId;
 

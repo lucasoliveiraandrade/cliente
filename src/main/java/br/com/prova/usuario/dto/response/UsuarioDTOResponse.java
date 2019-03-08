@@ -1,5 +1,6 @@
 package br.com.prova.usuario.dto.response;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import br.com.prova.usuario.integration.dto.CampanhaDTO;
@@ -14,7 +15,7 @@ public class UsuarioDTOResponse {
 	private String nome;
 	private String email;
 	private String timeCoracaoId;
-	private String dataNascimento;
+	private LocalDateTime dataNascimento;
 	private String tipo;
 	private List<CampanhaDTO> campanhas;
 }

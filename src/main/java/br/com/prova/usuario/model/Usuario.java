@@ -1,6 +1,6 @@
 package br.com.prova.usuario.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.validation.constraints.Email;
@@ -33,7 +33,7 @@ public class Usuario {
 	private String timeCoracaoId;
 
 	@NotNull
-	private LocalDate dataNascimento;
+	private LocalDateTime dataNascimento;
 
 	@NotNull
 	private TipoUsuario tipo;
