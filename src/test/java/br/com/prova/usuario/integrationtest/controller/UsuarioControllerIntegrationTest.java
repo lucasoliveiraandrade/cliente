@@ -2,6 +2,7 @@ package br.com.prova.usuario.integrationtest.controller;
 
 import static java.util.Arrays.asList;
 import static org.apache.commons.collections4.CollectionUtils.EMPTY_COLLECTION;
+import static org.apache.commons.lang3.StringUtils.split;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
@@ -13,7 +14,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.ArrayList;
 import java.util.Date;
 
-import org.apache.commons.lang3.StringUtils;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -80,7 +80,7 @@ public class UsuarioControllerIntegrationTest {
 				.andReturn().getResponse().getContentAsString();
 
 		assertNotNull(resposta);
-		usuarioId = StringUtils.split(resposta, '"')[3];
+		usuarioId = split(resposta, '"')[3];
 	}
 
 	@Test
